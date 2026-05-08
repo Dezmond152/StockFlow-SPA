@@ -6,16 +6,14 @@ import { Products } from './pages/Products/Products';
 export function App() {
   return (
     <Router>
-
-      <MainLayout>
-        <Routes>
-          <Route path="/" element={<Navigate to="/orders" />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/products" element={<Products />} />
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Navigate to="/orders" replace />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="products" element={<Products />} />
           <Route path="*" element={<div>404 - Страница не найдена</div>} />
-        </Routes>
-      </MainLayout>
+        </Route>
+      </Routes>
     </Router>
   );
 }
- 

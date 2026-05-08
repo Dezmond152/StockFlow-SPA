@@ -1,16 +1,20 @@
-import { TopMenu } from "../TopMenu/TopMenu.jsx";
-import { Navigation } from "../Navigation/Navigation.jsx";
+import { Outlet } from 'react-router-dom';
+import { TopMenu } from '../TopMenu/TopMenu';
+import { Navigation } from '../Navigation/Navigation';
 
-export const MainLayout = ({ children }) => {
+export function MainLayout() {
   return (
-    <div className="main-layout">
+    <>
       <TopMenu />
-      <div className="d-flex">
+      <div style={{ display: 'flex', minHeight: '100vh' }}>
         <Navigation />
-        <main className="p-4 w-100">
-          {children}
+        <main style={{ flexGrow: 1, backgroundColor: '#f0f3f5', padding: '30px' }}>
+
+          <Outlet />
         </main>
       </div>
-    </div>
+    </>
   );
-};
+}
+ 
+
