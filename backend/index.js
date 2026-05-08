@@ -25,12 +25,16 @@ app.get('/api/products', (req, res) => res.json(products));
 
 let activeSessions = 0;
 io.on('connection', (socket) => {
-  activeSessions++;
-  io.emit('sessionCount', activeSessions);
-  
+  const emitCount = () => {
+    io.emit('sessionCount', io.engine.clientsCount);
+  };
+
+  emitCount();
+
   socket.on('disconnect', () => {
-    activeSessions--;
-    io.emit('sessionCount', activeSessions);
+    setTimeout(() => {
+      emitCount();
+    }, 1000);
   });
 });
 
