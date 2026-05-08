@@ -1,17 +1,24 @@
-import { useEffect, useState } from 'react';
-import { io } from 'socket.io-client';
+import { useEffect, useState } from "react";
+import { io } from "socket.io-client";
 
 export const useSocket = () => {
   const [sessionCount, setSessionCount] = useState(0);
 
   useEffect(() => {
-    const socket = io('http://localhost:3001');
-
-    socket.on('sessionCount', (count) => {
-      setSessionCount(count);
+    const socket = io("http://localhost:3001", {
+      transports: ["websocket"],
     });
 
-    return () => socket.disconnect();
+    const handleSessionCount = (count) => {
+      setSessionCount(count);
+    };
+
+    socket.on("sessionCount", handleSessionCount);
+
+    return () => {
+      socket.off("sessionCount", handleSessionCount);
+      socket.disconnect();
+    };
   }, []);
 
   return sessionCount;

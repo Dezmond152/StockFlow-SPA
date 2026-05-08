@@ -1,16 +1,23 @@
-import { TopMenu } from "../TopMenu/TopMenu.jsx";
-import { Navigation } from "../Navigation/Navigation.jsx";
+import React from "react";
+import { Outlet } from "react-router-dom";
+import { TopMenu } from "../TopMenu/TopMenu";
+import { NavigationMenu } from "../NavigationMenu/NavigationMenu";
+import "./MainLayout.css";
 
-export const MainLayout = ({ children }) => {
+export function MainLayout() {
   return (
     <div className="main-layout">
       <TopMenu />
-      <div className="d-flex">
-        <Navigation />
-        <main className="p-4 w-100">
-          {children}
+      
+      <div className="main-layout__container">
+        <aside className="main-layout__sidebar">
+          <NavigationMenu />
+        </aside>
+
+        <main className="main-layout__content">
+          <Outlet />
         </main>
       </div>
     </div>
   );
-};
+}
