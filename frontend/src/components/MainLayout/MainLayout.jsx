@@ -1,20 +1,23 @@
-import { Outlet } from 'react-router-dom';
-import { TopMenu } from '../TopMenu/TopMenu';
-import { Navigation } from '../Navigation/Navigation';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import { TopMenu } from "../TopMenu/TopMenu";
+import { NavigationMenu } from "../NavigationMenu/NavigationMenu";
+import "./MainLayout.css";
 
 export function MainLayout() {
   return (
-    <>
+    <div className="main-layout">
       <TopMenu />
-      <div style={{ display: 'flex', minHeight: '100vh' }}>
-        <Navigation />
-        <main style={{ flexGrow: 1, backgroundColor: '#f0f3f5', padding: '30px' }}>
+      
+      <div className="main-layout__container">
+        <aside className="main-layout__sidebar">
+          <NavigationMenu />
+        </aside>
 
+        <main className="main-layout__content">
           <Outlet />
         </main>
       </div>
-    </>
+    </div>
   );
 }
- 
-
