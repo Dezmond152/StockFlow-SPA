@@ -1,0 +1,49 @@
+.orders {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+ 
+.orders--centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.orders__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+   
+}
+
+.orders__add-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background-color: #8bc34a;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  transition: transform 0.2s ease;
+}
+
+.orders__add-btn:hover {
+  transform: scale(1.1);
+}
+ 
+.orders__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+ 
+.orders__list {
+  display: flex;
+  flex-direction: column;
+    
+}
