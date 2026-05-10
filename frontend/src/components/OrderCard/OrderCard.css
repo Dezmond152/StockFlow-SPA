@@ -1,4 +1,4 @@
-.order-item {
+.order-card {
   display: flex;
   align-items: center;
   background-color: #ffffff;
@@ -9,16 +9,16 @@
   transition: box-shadow 0.2s ease;
 }
 
-.order-item:hover {
+.order-card:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-.order-item__title-container {
+.order-card__title-container {
   flex: 0 1 45%;
   margin-right: 40px;
 }
 
-.order-item__title-text {
+.order-card__title-text {
   display: inline-block;
   font-size: 1.1rem;
   color: #455a64;
@@ -28,7 +28,7 @@
   cursor: pointer;
 }
 
-.order-item__info-group {
+.order-card__info-group {
   display: flex;
   align-items: center;
   flex: 1;
@@ -36,7 +36,7 @@
   min-width: 120px;
 }
 
-.order-item__icon-btn {
+.order-card__icon-btn {
   background: none;
   border: 1px solid #cfd8dc;
   border-radius: 50%;
@@ -49,25 +49,25 @@
   padding: 0;
 }
 
-.order-item__count {
+.order-card__count {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.order-item__number {
+.order-card__number {
   font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.1;
   color: #263238;
 }
 
-.order-item__label {
+.order-card__label {
   color: #90a4ae;
   font-size: 0.8rem;
 }
 
-.order-item__date-group {
+.order-card__date-group {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,18 +75,18 @@
   min-width: 100px;
 }
 
-.order-item__date-short {
+.order-card__date-short {
   font-size: 0.7rem;
   color: #90a4ae;
   margin-bottom: 2px;
 }
 
-.order-item__date-full {
+.order-card__date-full {
   font-size: 0.85rem;
   color: #37474f;
 }
 
-.order-item__price {
+.order-card__price {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -94,28 +94,28 @@
   min-width: 130px;
 }
 
-.order-item__price-usd {
+.order-card__price-usd {
   color: #90a4ae;
   font-size: 0.7rem;
   margin-bottom: 2px;
 }
 
-.order-item__price-uah {
+.order-card__price-uah {
   font-weight: 500;
   font-size: 0.95rem;
   color: #263238;
 }
 
-.order-item__currency {
+.order-card__currency {
   font-size: 0.75rem;
   font-weight: 400;
 }
 
-.order-item__delete {
+.order-card__delete {
   margin-left: auto;
 }
 
-.order-item__delete-btn {
+.order-card__delete-btn {
   background: none;
   border: none;
   cursor: pointer;
@@ -127,10 +127,10 @@
   transition: opacity 0.2s;
 }
 
-.order-item__delete-btn:hover {
+.order-card__delete-btn:hover {
   opacity: 1;
 }
 
-.order-item__delete-btn:hover svg {
+.order-card__delete-btn:hover svg {
   stroke: #d32f2f;
 }

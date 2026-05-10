@@ -1,5 +1,5 @@
 import "./Orders.css";
-import { OrderItem } from "../../components/OrderItem/OrderItem";
+import { OrderCard } from "../../components/OrderCard/OrderCard";
 import { AddIcon } from '../../icons/AddIcon';
 
 export function Orders() {
@@ -14,10 +14,10 @@ export function Orders() {
       </header>
 
       <div className="orders__list">
-        <OrderItem />
-        <OrderItem />
-        <OrderItem />
-        <OrderItem />
+        <OrderCard />
+        <OrderCard />
+        <OrderCard />
+        <OrderCard />
       </div>
       
     </section>
