@@ -5,8 +5,9 @@
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   padding: 12px 25px;
-  margin-bottom: 12px;
   transition: box-shadow 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .order-card:hover {
@@ -16,24 +17,32 @@
 .order-card__title-container {
   flex: 0 1 45%;
   margin-right: 40px;
+  min-width: 0;
 }
 
 .order-card__title-text {
-  display: inline-block;
+  display: block;
   font-size: 1.1rem;
   color: #455a64;
-  border-bottom: 1px solid #90a4ae;
-  padding-bottom: 2px;
   line-height: 1.2;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  padding-bottom: 3px;
+}
+
+.order-card__title-inner {
+  display: inline;
+  border-bottom: 1px solid #90a4ae;
 }
 
 .order-card__info-group {
   display: flex;
   align-items: center;
-  flex: 1;
+  flex: 0 0 150px;
   gap: 15px;
-  min-width: 120px;
 }
 
 .order-card__icon-btn {
@@ -47,12 +56,14 @@
   justify-content: center;
   cursor: pointer;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .order-card__count {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  white-space: nowrap;
 }
 
 .order-card__number {
@@ -71,8 +82,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
-  min-width: 100px;
+  flex: 0 0 120px;
+  white-space: nowrap;
 }
 
 .order-card__date-short {
@@ -90,8 +101,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex: 1;
-  min-width: 130px;
+  flex: 0 0 160px;
+  white-space: nowrap;
 }
 
 .order-card__price-usd {
@@ -113,6 +124,7 @@
 
 .order-card__delete {
   margin-left: auto;
+  flex-shrink: 0;
 }
 
 .order-card__delete-btn {
@@ -129,8 +141,4 @@
 
 .order-card__delete-btn:hover {
   opacity: 1;
-}
-
-.order-card__delete-btn:hover svg {
-  stroke: #d32f2f;
 }

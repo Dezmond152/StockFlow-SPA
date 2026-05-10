@@ -7,7 +7,9 @@ export function OrderCard() {
     <div className="order-card">
       <div className="order-card__title-container">
         <span className="order-card__title-text">
-          Длинное предлинное длиннючее название прихода
+          <span className="order-card__title-inner">
+            Длинное предлинное длиннючее название прихода
+          </span>
         </span>
       </div>
 
@@ -19,13 +21,13 @@ export function OrderCard() {
         </div>
         <div className="order-card__count">
           <span className="order-card__number">23</span>
-          <span className="order-card__label">Products</span>
+          <span className="order-card__label">Продукты</span>
         </div>
       </div>
 
       <div className="order-card__date-group">
         <span className="order-card__date-short">04 / 12</span>
-        <span className="order-card__date-full">06 / Apr / 2017</span>
+        <span className="order-card__date-full">06 / Апр / 2017</span>
       </div>
 
       <div className="order-card__price">
