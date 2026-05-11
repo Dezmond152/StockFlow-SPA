@@ -1,0 +1,15 @@
+:root {
+  --color-green: #84ad33;
+  --color-green-soft: rgba(0, 128, 0, 0.514);
+  --color-yellow: #cddc39;
+  --color-black: #000000;
+  --color-black-soft: rgba(0, 0, 0, 0.1);
+  --color-white: #ffffff;
+  --color-light-grey: #d4caca;
+
+  --color-text-main: #527180;
+  --color-text-darker: #314650;
+  --color-bg-main-layout:#F0F3F5;
+}
+
+ 

@@ -1,8 +1,8 @@
 .product-card {
   display: flex;
   align-items: center;
-  background-color: #fff;
-  border: 1px solid #cfd8dc;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-grey);
   border-radius: 4px;
   padding: 10px 15px;
   gap: 15px;
@@ -12,7 +12,7 @@
 }
 
 .product-card:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--color-black-soft);
 }
 
 .product-card__status-dot {
@@ -23,11 +23,11 @@
 }
 
 .product-card__status-dot--free {
-  background-color: #cddc39;
+  background-color: var(--color-yellow);
 }
 
 .product-card__status-dot--repair {
-  background-color: #263238;
+  background-color: var(--color-black);
 }
 
 .product-card__image-box {
@@ -84,7 +84,7 @@
 
 .product-card__name {
   font-size: 15px;
-  color: #455a64;
+  color: var(--color-text-darker);
   text-decoration: underline;
   margin-bottom: 2px;
   display: block;
@@ -96,7 +96,7 @@
 
 .product-card__sn {
   font-size: 12px;
-  color: #90a4ae;
+  color: var(--color-text-main);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -107,31 +107,31 @@
 }
 
 .product-card__status-text--free {
-  color: #cddc39;
+  color: var(--color-yellow);
 }
 
 .product-card__status-text--repair {
-  color: #263238;
+  color: var(--color-text-darker);
 }
 
 .product-card__date-row {
   font-size: 13px;
-  color: #37474f;
+  color: var(--color-text-main);
 }
 
 .product-card__date-row span {
-  color: #90a4ae;
+  color: var(--color-text-main);
   margin-right: 5px;
 }
 
 .product-card__price-usd {
   font-size: 11px;
-  color: #90a4ae;
+  color: var(--color-text-main);
 }
 
 .product-card__price-uah {
   font-size: 14px;
-  color: #37474f;
+  color: var(--color-text-main);
   font-weight: 500;
 }
 
@@ -142,7 +142,7 @@
 
 .product-card__link-text {
   font-size: 14px;
-  color: #455a64;
+  color: var(--color-text-main);
   text-decoration: underline;
   cursor: pointer;
   overflow: hidden;
@@ -159,12 +159,12 @@
 
 .product-card__order-date-short {
   font-size: 12px;
-  color: #90a4ae;
+  color: var(--color-text-main);
 }
 
 .product-card__order-date-full {
   font-size: 13px;
-  color: #455a64;
+  color: var(--color-text-main);
 }
 
 .product-card__delete-btn {

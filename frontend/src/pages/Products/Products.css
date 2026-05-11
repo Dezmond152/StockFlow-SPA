@@ -16,7 +16,7 @@
 .products__title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #333;
+  color: var(--color-black);
   margin: 0;
 }
 
@@ -33,16 +33,17 @@
 
 .products__filter-label {
   font-size: 0.9rem;
-  color: #90a4ae;
+  color: var(--color-text-main);
 }
 
 .products__filter-select {
-  padding: 4px 12px;
-  border: 1px solid #cfd8dc;
+  padding: 4px;
+  border: 1px solid var(--color-light-grey);
   border-radius: 4px;
-  background-color: #fff;
-  color: #455a64;
+  background-color: var(--color-white);
+  color: var(--color-black);
   min-width: 150px;
+  cursor: pointer;
 }
 
 .products__content-wrapper {

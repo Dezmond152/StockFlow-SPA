@@ -1,8 +1,8 @@
 .order-card {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-grey);
   border-radius: 4px;
   padding: 12px 25px;
   transition: box-shadow 0.2s ease;
@@ -11,7 +11,7 @@
 }
 
 .order-card:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px var(--color-black-soft);
 }
 
 .order-card__title-container {
@@ -23,7 +23,7 @@
 .order-card__title-text {
   display: block;
   font-size: 1.1rem;
-  color: #455a64;
+  color: var(--color-text-main);
   line-height: 1.2;
   cursor: pointer;
   white-space: nowrap;
@@ -35,7 +35,7 @@
 
 .order-card__title-inner {
   display: inline;
-  border-bottom: 1px solid #90a4ae;
+  border-bottom: 1px solid var(--color-light-grey);
 }
 
 .order-card__info-group {
@@ -47,7 +47,7 @@
 
 .order-card__icon-btn {
   background: none;
-  border: 1px solid #cfd8dc;
+  border: 1px solid var(--color-light-grey);
   border-radius: 50%;
   width: 38px;
   height: 38px;
@@ -70,11 +70,11 @@
   font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.1;
-  color: #263238;
+  color: var(--color-text-main);
 }
 
 .order-card__label {
-  color: #90a4ae;
+  color: var(--color-text-main);
   font-size: 0.8rem;
 }
 
@@ -88,13 +88,13 @@
 
 .order-card__date-short {
   font-size: 0.7rem;
-  color: #90a4ae;
+  color: var(--color-text-main);
   margin-bottom: 2px;
 }
 
 .order-card__date-full {
   font-size: 0.85rem;
-  color: #37474f;
+  color: var(--color-text-main);
 }
 
 .order-card__price {
@@ -106,7 +106,7 @@
 }
 
 .order-card__price-usd {
-  color: #90a4ae;
+  color: var(--color-text-main);
   font-size: 0.7rem;
   margin-bottom: 2px;
 }
@@ -114,7 +114,7 @@
 .order-card__price-uah {
   font-weight: 500;
   font-size: 0.95rem;
-  color: #263238;
+  color: var(--color-text-main);
 }
 
 .order-card__currency {

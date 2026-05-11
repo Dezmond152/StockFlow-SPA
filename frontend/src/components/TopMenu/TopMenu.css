@@ -1,0 +1,93 @@
+:root {
+  --top-menu-height: 5rem;
+}
+
+.top-menu {
+  min-height: var(--top-menu-height);
+  box-shadow: 0 0.125rem 0.625rem var(--color-black-soft);
+  padding: 0 !important;
+}
+
+.top-menu-content {
+  padding: 0 5rem !important;
+  height: var(--top-menu-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-menu-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+.brand-name {
+  color: var(--color-green);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.03rem;
+}
+
+.top-menu-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 31rem;
+}
+
+.search-container {
+  width: 100%;
+  padding: 0 2.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--color-light-grey);
+  border-radius: 0.25rem;
+  background-color: var(--color-bg-main-layout);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.top-menu-right {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.date-info {
+  text-align: left;
+  color: var(--color-text-mai);
+  line-height: 1.2;
+}
+
+.day-name {
+  font-size: 0.9rem;
+}
+
+.full-date {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.time-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+ 
+  
+.time-value {
+  font-size: 0.9rem;
+}
+
+.sessions-badge {
+  margin-left: 0.6rem;
+  padding-left: 1.25rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-left: 1px solid var(--color-light-grey);
+}

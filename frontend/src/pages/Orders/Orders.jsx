@@ -7,7 +7,7 @@ export function Orders() {
     <section className="orders container-fluid">
       <header className="orders__header">
         <button className="orders__add-btn">
-          <AddIcon size={20} color="white" />
+          <AddIcon size={12} color="white" />
         </button>
         <h1 className="orders__title">Приходы / 25</h1>
       </header>
