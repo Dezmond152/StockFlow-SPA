@@ -12,13 +12,11 @@
 .main-layout__sidebar {
   flex: 0 0 15.625rem;
   min-width: 15.625rem;
-  background-color: #ffffff;
-  border-right: 1px solid #e0e0e0;
+  background-color: var(--color-white);
 }
 
 .main-layout__content {
   flex-grow: 1;
-  background-color: #f0f3f5;
-  padding: 1.875rem;
-  overflow-x: hidden;
+  overflow-x: auto;
+  background-color: var(--color-bg-main-layout);
 }

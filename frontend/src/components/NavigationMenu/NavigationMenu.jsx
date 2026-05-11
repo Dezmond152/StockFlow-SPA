@@ -13,7 +13,7 @@ export function NavigationMenu() {
           to={ROUTES.ORDERS}
           className="nav-menu__link"
         >
-          Orders
+          Приход
         </Nav.Link>
 
         <Nav.Link 
@@ -21,7 +21,7 @@ export function NavigationMenu() {
           to={ROUTES.PRODUCTS}
           className="nav-menu__link"
         >
-          Products
+          Продукты
         </Nav.Link>
       </Nav>
     </nav>
