@@ -2,7 +2,19 @@ import "./ProductCard.css";
 import { TrashIcon } from "../../icons/TrashIcon";
 import { MonitorIcon } from "../../icons/MonitorIcon";
 
-export function ProductCard({ status = "free" }) {
+export function ProductCard({ product, onDelete }) {
+  if (!product) return null;
+
+  const priceUSD = product.price.find(p => p.symbol === 'USD');
+  const priceUAH = product.price.find(p => p.symbol === 'UAH');
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "";
+    return dateStr.split(' ')[0].split('-').reverse().join(' / ');
+  };
+
+  const status = product.isNew ? "free" : "repair";
+
   return (
     <div className="product-card">
       <div className={`product-card__status-dot product-card__status-dot--${status}`} />
@@ -12,56 +24,56 @@ export function ProductCard({ status = "free" }) {
       </div>
 
       <div className="product-card__col product-card__col--main">
-        <div className="product-card__name">
-          Gigabyte Technology X58-USB3 (Socket 1366) 6 X58-USB3
-        </div>
-        <div className="product-card__sn">SN-123456789</div>
+        <div className="product-card__name">{product.title}</div>
+        <div className="product-card__sn">SN-{product.serialNumber}</div>
       </div>
 
       <div className="product-card__col product-card__col--status">
         <span className={`product-card__status-text product-card__status-text--${status}`}>
-          {status === "free" ? "свободен" : "В ремонте"}
+          {status === "free" ? "свободен" : "в ремонте"}
         </span>
       </div>
 
       <div className="product-card__col product-card__col--dates">
         <div className="product-card__date-row">
-          <span>с</span> 06 / 04 / 2017
+          <span>с</span> {formatDate(product.guarantee?.start)}
         </div>
         <div className="product-card__date-row">
-          <span>по</span> 06 / 08 / 2025
+          <span>по</span> {formatDate(product.guarantee?.end)}
         </div>
       </div>
 
       <div className="product-card__col product-card__col--condition">
-        новый
+        {product.isNew ? "новый" : "б/у"}
       </div>
 
       <div className="product-card__col product-card__col--price">
-        <div className="product-card__price-usd">2 500 $</div>
+        <div className="product-card__price-usd">{priceUSD?.value} $</div>
         <div className="product-card__price-uah">
-          250 000. 50 <span className="product-card__currency">UAH</span>
+          {priceUAH?.value} <span className="product-card__currency">UAH</span>
         </div>
       </div>
 
       <div className="product-card__col product-card__col--group">
-        <span className="product-card__link-text">Длинное предлинное длиннючее название группы</span>
+        <span className="product-card__link-text">{product.type}</span>
       </div>
 
       <div className="product-card__col product-card__col--user">
-        <span className="product-card__link-text">Христорождественский Александр</span>
+        <span className="product-card__link-text">{product.specification}</span>
       </div>
 
       <div className="product-card__col product-card__col--order">
-        <span className="product-card__link-text">Длинное предлинное длиннючее название прихода</span>
+        <span className="product-card__link-text">Приход №{product.order}</span>
       </div>
 
       <div className="product-card__col product-card__col--end">
         <div className="product-card__order-date">
-          <div className="product-card__order-date-short">06 / 12</div>
-          <div className="product-card__order-date-full">06 / Сен / 2017</div>
+          <div className="product-card__order-date-short">
+            {product.date ? product.date.split(' ')[0].split('-').slice(1, 3).reverse().join(' / ') : ""}
+          </div>
+          <div className="product-card__order-date-full">{formatDate(product.date)}</div>
         </div>
-        <button className="product-card__delete-btn">
+        <button className="product-card__delete-btn" onClick={() => onDelete(product.id)}>
           <TrashIcon size={18} color="#546e7a" />
         </button>
       </div>
