@@ -5,12 +5,12 @@ import { MonitorIcon } from "../../icons/MonitorIcon";
 export function ProductCard({ product, onDelete }) {
   if (!product) return null;
 
-  const priceUSD = product.price.find(p => p.symbol === 'USD');
-  const priceUAH = product.price.find(p => p.symbol === 'UAH');
+  const priceUSD = product.price.find((p) => p.symbol === "USD");
+  const priceUAH = product.price.find((p) => p.symbol === "UAH");
 
   const formatDate = (dateStr) => {
     if (!dateStr) return "";
-    return dateStr.split(' ')[0].split('-').reverse().join(' / ');
+    return dateStr.split(" ")[0].split("-").reverse().join(" / ");
   };
 
   const status = product.isNew ? "free" : "repair";
@@ -43,9 +43,7 @@ export function ProductCard({ product, onDelete }) {
         </div>
       </div>
 
-      <div className="product-card__col product-card__col--condition">
-        {product.isNew ? "новый" : "б/у"}
-      </div>
+      <div className="product-card__col product-card__col--condition">{product.isNew ? "новый" : "б/у"}</div>
 
       <div className="product-card__col product-card__col--price">
         <div className="product-card__price-usd">{priceUSD?.value} $</div>
@@ -63,13 +61,13 @@ export function ProductCard({ product, onDelete }) {
       </div>
 
       <div className="product-card__col product-card__col--order">
-        <span className="product-card__link-text">Приход №{product.order}</span>
+        <span className="product-card__link-text">{product.title}</span>
       </div>
 
       <div className="product-card__col product-card__col--end">
         <div className="product-card__order-date">
           <div className="product-card__order-date-short">
-            {product.date ? product.date.split(' ')[0].split('-').slice(1, 3).reverse().join(' / ') : ""}
+            {product.date ? product.date.split(" ")[0].split("-").slice(1, 3).reverse().join(" / ") : ""}
           </div>
           <div className="product-card__order-date-full">{formatDate(product.date)}</div>
         </div>

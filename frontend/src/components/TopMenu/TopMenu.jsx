@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSocket } from "../../hooks/useSocket";
-import { ShieldIcon } from "../../icons/ShieldIcon"
-import { ClockIcon } from "../../icons/ClockIcon"
+import { ShieldIcon } from "../../icons/ShieldIcon";
+import { ClockIcon } from "../../icons/ClockIcon";
 import "./TopMenu.css";
 
 const TIME_UPDATE_INTERVAL = 60000;
@@ -52,9 +52,7 @@ export function TopMenu() {
 
         <div className="top-menu-right">
           <div className="date-info">
-            <div className="day-name">
-              {dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1)}
-            </div>
+            <div className="day-name">{dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1)}</div>
             <div className="full-date">{formattedDate}</div>
           </div>
 
