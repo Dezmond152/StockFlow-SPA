@@ -23,6 +23,11 @@ export function ProductsPage() {
     return <div className="container-fluid py-5 text-danger">Ошибка: {error}</div>;
   }
 
+  const allTypes = products.map((item) => item?.type);
+  const validTypes = allTypes.filter((type) => type !== undefined);
+  const productTypeArr = [...new Set(validTypes)];
+  // console.log(productTypeArr)
+
   return (
     <section className="products container-fluid">
       <header className="products__header">
@@ -33,14 +38,7 @@ export function ProductsPage() {
             <label className="products__filter-label">Тип:</label>
             <select className="products__filter-select">
               <option>Все</option>
-              <option>Monitors</option>
-            </select>
-          </div>
-
-          <div className="products__filter-group">
-            <label className="products__filter-label">Спецификация:</label>
-            <select className="products__filter-select">
-              <option>Все</option>
+              {productTypeArr.map((item) => <option key={item}>{item}</option>)}
             </select>
           </div>
         </div>

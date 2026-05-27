@@ -13,7 +13,7 @@ export function ProductCard({ product, onDelete }) {
     return dateStr.split(" ")[0].split("-").reverse().join(" / ");
   };
 
-  const status = product.isNew ? "free" : "repair";
+  const status = product.isNew ? "new" : "used";
 
   return (
     <div className="product-card">
@@ -30,7 +30,7 @@ export function ProductCard({ product, onDelete }) {
 
       <div className="product-card__col product-card__col--status">
         <span className={`product-card__status-text product-card__status-text--${status}`}>
-          {status === "free" ? "свободен" : "в ремонте"}
+          {status === "free" ? "новый" : "б/у"}
         </span>
       </div>
 
@@ -42,8 +42,6 @@ export function ProductCard({ product, onDelete }) {
           <span>по</span> {formatDate(product.guarantee?.end)}
         </div>
       </div>
-
-      <div className="product-card__col product-card__col--condition">{product.isNew ? "новый" : "б/у"}</div>
 
       <div className="product-card__col product-card__col--price">
         <div className="product-card__price-usd">{priceUSD?.value} $</div>
