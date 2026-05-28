@@ -1,15 +1,13 @@
-import './OrderCard.css';
-import { ListIcon } from '../../icons/ListIcon';
-import { TrashIcon } from '../../icons/TrashIcon';
+import "./OrderCard.css";
+import { ListIcon } from "../../icons/ListIcon";
+import { TrashIcon } from "../../icons/TrashIcon";
 
 export function OrderCard() {
   return (
     <div className="order-card">
       <div className="order-card__title-container">
         <span className="order-card__title-text">
-          <span className="order-card__title-inner">
-            Длинное предлинное длиннючее название прихода
-          </span>
+          <span className="order-card__title-inner">Длинное предлинное длиннючее название прихода</span>
         </span>
       </div>
 

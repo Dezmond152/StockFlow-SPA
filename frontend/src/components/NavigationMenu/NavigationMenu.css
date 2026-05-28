@@ -21,14 +21,14 @@
 }
 
 .nav-menu__link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
   width: 0;
   height: 0.125rem;
   background-color: var(--color-green);
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
   transition: width 0.3s ease;
 }
 

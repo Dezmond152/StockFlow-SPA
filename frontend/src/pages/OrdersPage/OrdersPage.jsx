@@ -1,8 +1,8 @@
-import "./Orders.css";
+import "./OrdersPage.css";
 import { OrderCard } from "../../components/OrderCard/OrderCard";
-import { AddIcon } from '../../icons/AddIcon';
+import { AddIcon } from "../../icons/AddIcon";
 
-export function Orders() {
+export function OrdersPage() {
   return (
     <section className="orders container-fluid">
       <header className="orders__header">
