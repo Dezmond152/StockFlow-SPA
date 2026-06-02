@@ -8,6 +8,7 @@ import { useState } from "react";
 export function ProductsPage() {
   const dispatch = useDispatch();
   const [filter, setFilter] = useState("Все");
+  
   const { items: products, status, error } = useSelector((state) => state.products);
 
   useEffect(() => {
@@ -57,7 +58,7 @@ export function ProductsPage() {
       <div className="products__content-wrapper">
         <div className="products__list">
           {filteredProducts.map((item) => (
-            <ProductCard key={item.id} product={item} onDelete={(id) => dispatch(deleteProduct(id))} />
+            <ProductCard key={item.id} product={item} />
           ))}
         </div>
       </div>

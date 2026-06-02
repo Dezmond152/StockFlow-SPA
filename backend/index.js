@@ -5,7 +5,10 @@ import cors from 'cors';
 import { orders, products } from './data/mockData.js';
 
 const app = express();
+
+// Middleware
 app.use(cors());
+app.use(express.json());
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -20,10 +23,26 @@ app.get('/api/orders', (req, res) => {
   res.json(result);
 });
 
-app.get('/api/products', (req, res) => res.json(products));
+app.get('/api/products', (req, res) => {
+  res.json(products);
+});
 
 
-let activeSessions = 0;
+app.delete('/api/products/:id', (req, res) => {
+  const productId = parseInt(req.params.id, 10);
+  
+  const productIndex = products.findIndex(p => p.id === productId);
+  
+  if (productIndex === -1) {
+    return res.status(404).json({ message: "Продукт не найден" });
+  }
+
+  products.splice(productIndex, 1);
+
+  res.json({ id: productId, message: "Продукт успешно удален" });
+});
+
+
 io.on('connection', (socket) => {
   const emitCount = () => {
     io.emit('sessionCount', io.engine.clientsCount);
@@ -38,4 +57,11 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3001, () => console.log('Backend modular and running!'));
+const PORT = 3001;
+server.listen(PORT, () => {
+  console.log(`=============================================`);
+  console.log(`  Backend modular and running on port ${PORT} `);
+  console.log(`  URL продуктов: http://localhost:${PORT}/api/products `);
+  console.log(`  URL ордеров:   http://localhost:${PORT}/api/orders   `);
+  console.log(`=============================================`);
+});
