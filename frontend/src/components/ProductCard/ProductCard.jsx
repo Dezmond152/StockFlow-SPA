@@ -1,12 +1,21 @@
 import "./ProductCard.css";
 import { TrashIcon } from "../../icons/TrashIcon";
 import { MonitorIcon } from "../../icons/MonitorIcon";
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../store/modalSlice';
 
-export function ProductCard({ product, onDelete }) {
+
+export function ProductCard({ product }) {
   if (!product) return null;
 
-  const priceUSD = product.price.find((p) => p.symbol === "USD");
-  const priceUAH = product.price.find((p) => p.symbol === "UAH");
+  const dispatch = useDispatch();
+
+  const handleDeleteClick = () => {
+    dispatch(openModal(product));
+  };
+
+  const priceUSD = product.price?.find((p) => p.symbol === "USD");
+  const priceUAH = product.price?.find((p) => p.symbol === "UAH");
 
   const formatDate = (dateStr) => {
     if (!dateStr) return "";
@@ -30,7 +39,7 @@ export function ProductCard({ product, onDelete }) {
 
       <div className="product-card__col product-card__col--status">
         <span className={`product-card__status-text product-card__status-text--${status}`}>
-          {status === "free" ? "новый" : "б/у"}
+          {status === "new" ? "новый" : "б/у"}
         </span>
       </div>
 
@@ -69,7 +78,7 @@ export function ProductCard({ product, onDelete }) {
           </div>
           <div className="product-card__order-date-full">{formatDate(product.date)}</div>
         </div>
-        <button className="product-card__delete-btn" onClick={() => onDelete(product.id)}>
+        <button className="product-card__delete-btn" onClick={handleDeleteClick}>
           <TrashIcon size={18} color="#546e7a" />
         </button>
       </div>
