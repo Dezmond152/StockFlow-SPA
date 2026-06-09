@@ -1,5 +1,7 @@
 import "./OrdersPage.css";
 import { OrderCard } from "../../components/OrderCard/OrderCard";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../store/productsSlice";
 import { AddIcon } from "../../icons/AddIcon";
 
 export function OrdersPage() {
