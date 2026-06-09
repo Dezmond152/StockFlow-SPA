@@ -1,9 +1,8 @@
 import "./ProductCard.css";
 import { TrashIcon } from "../../icons/TrashIcon";
 import { MonitorIcon } from "../../icons/MonitorIcon";
-import { useDispatch } from 'react-redux';
-import { openModal } from '../../store/modalSlice';
-
+import { useDispatch } from "react-redux";
+import { openModal } from "../../store/modalSlice";
 
 export function ProductCard({ product }) {
   if (!product) return null;
@@ -53,9 +52,9 @@ export function ProductCard({ product }) {
       </div>
 
       <div className="product-card__col product-card__col--price">
-        <div className="product-card__price-usd">{priceUSD?.value} $</div>
+        <div className="product-card__price-usd">{priceUSD?.value?.toLocaleString()} $</div>
         <div className="product-card__price-uah">
-          {priceUAH?.value} <span className="product-card__currency">UAH</span>
+          {priceUAH?.value?.toLocaleString()} <span className="product-card__currency">UAH</span>
         </div>
       </div>
 

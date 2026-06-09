@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import { deleteProduct } from "./productsSlice";
 
 export const fetchOrders = createAsyncThunk("orders/fetchOrders", async () => {
   const response = await axios.get("http://localhost:3001/api/orders");
@@ -33,12 +33,20 @@ const ordersSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       })
-
       .addCase(deleteOrder.fulfilled, (state, action) => {
         state.items = state.items.filter((order) => order.id !== action.payload);
       })
       .addCase(deleteOrder.rejected, (state, action) => {
         alert(`Не удалось удалить ордер: ${action.error.message}`);
+      })
+      
+      .addCase(deleteProduct.fulfilled, (state, action) => {
+        const deletedProductId = action.payload;
+        state.items.forEach((order) => {
+          if (order.products) {
+            order.products = order.products.filter((p) => p.id !== deletedProductId);
+          }
+        });
       });
   },
 });
