@@ -1,9 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
 export const fetchOrders = createAsyncThunk("orders/fetchOrders", async () => {
   const response = await axios.get("http://localhost:3001/api/orders");
   return response.data;
+});
+
+export const deleteOrder = createAsyncThunk("orders/deleteOrder", async (id) => {
+  const response = await axios.delete(`http://localhost:3001/api/orders/${id}`);
+  return response.data.id;
 });
 
 const ordersSlice = createSlice({
@@ -13,11 +19,7 @@ const ordersSlice = createSlice({
     status: "idle",
     error: null,
   },
-  reducers: {
-    deleteOrder: (state, action) => {
-      state.items = state.items.filter((order) => order.id !== action.payload);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchOrders.pending, (state) => {
@@ -30,9 +32,15 @@ const ordersSlice = createSlice({
       .addCase(fetchOrders.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+
+      .addCase(deleteOrder.fulfilled, (state, action) => {
+        state.items = state.items.filter((order) => order.id !== action.payload);
+      })
+      .addCase(deleteOrder.rejected, (state, action) => {
+        alert(`Не удалось удалить ордер: ${action.error.message}`);
       });
   },
 });
 
-export const { deleteOrder } = ordersSlice.actions;
 export default ordersSlice.reducer;

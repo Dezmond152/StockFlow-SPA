@@ -1,13 +1,50 @@
 import "./OrderCard.css";
 import { ListIcon } from "../../icons/ListIcon";
 import { TrashIcon } from "../../icons/TrashIcon";
+import { openModal } from "../../store/modalSlice";
+import { useDispatch } from "react-redux";
 
-export function OrderCard() {
+export function OrderCard({ order }) {
+  if(!order) return null;
+
+  const dispatch = useDispatch();
+  const productsCount = order.products?.length || 0;
+
+  const totalUSD = order.products?.reduce((sum, p) => {
+    const usdPrise = p.price?.find((price)=>price.symbol === "USD");
+    return sum + (usdPrise ? usdPrise.value : 0);
+  }, 0) || 0;
+
+  const totalUAH = order.products?.reduce((sum, p) => {
+    const uahPrice = p.price?.find((price) => price.symbol === "UAH");
+    return sum + (uahPrice ? uahPrice.value : 0);
+  }, 0) || 0;
+
+  const formatDateFull = (dateStr) => {
+    if (!dateStr) return "";
+    const months = ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"];
+    const [datePart] = dateStr.split(" ");
+    const [year, month, day] = datePart.split("-");
+    return `${day} / ${months[parseInt(month, 10) - 1]} / ${year}`;
+  };
+  
+  const formatDateShort = (dateStr) => {
+    if (!dateStr) return "";
+    const [datePart] = dateStr.split(" ");
+    const [, month, day] = datePart.split("-");
+    return `${day} / ${month}`;
+  };
+
+  const handleDeleteClick = () => {
+ 
+    dispatch(openModal({ ...order, typeToDelete: 'order' })); 
+  };
+
   return (
     <div className="order-card">
       <div className="order-card__title-container">
         <span className="order-card__title-text">
-          <span className="order-card__title-inner">Длинное предлинное длиннючее название прихода</span>
+          <span className="order-card__title-inner">{order.title}</span>
         </span>
       </div>
 
@@ -18,25 +55,25 @@ export function OrderCard() {
           </button>
         </div>
         <div className="order-card__count">
-          <span className="order-card__number">23</span>
+          <span className="order-card__number">{productsCount}</span>
           <span className="order-card__label">Продукты</span>
         </div>
       </div>
 
       <div className="order-card__date-group">
-        <span className="order-card__date-short">04 / 12</span>
-        <span className="order-card__date-full">06 / Апр / 2017</span>
+        <span className="order-card__date-short">{formatDateShort(order.date)}</span>
+        <span className="order-card__date-full">{formatDateFull(order.date)}</span>
       </div>
 
       <div className="order-card__price">
-        <div className="order-card__price-usd">2 500 $</div>
+        <div className="order-card__price-usd">{totalUSD.toLocaleString()} $</div>
         <div className="order-card__price-uah">
-          250 000. 50 <span className="order-card__currency">UAH</span>
+          {totalUAH.toLocaleString()} <span className="order-card__currency">UAH</span>
         </div>
       </div>
 
       <div className="order-card__delete">
-        <button className="order-card__delete-btn">
+        <button className="order-card__delete-btn" onClick={handleDeleteClick}>
           <TrashIcon size={18} color="#546e7a" />
         </button>
       </div>
