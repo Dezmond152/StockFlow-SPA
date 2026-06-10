@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeModal } from '../../store/modalSlice';
 import { deleteProduct } from '../../store/productsSlice';
+import { deleteOrder } from '../../store/ordersSlice';
 import './DeleteModal.css';
 
 export const DeleteModal = () => {
@@ -20,8 +21,14 @@ export const DeleteModal = () => {
 
   if (!isOpen || !itemToDelete) return null;
 
+  const isOrder = itemToDelete.typeToDelete === 'order';
+
   const handleConfirmDelete = () => {
-    dispatch(deleteProduct(itemToDelete.id));
+    if (isOrder) {
+      dispatch(deleteOrder(itemToDelete.id));
+    } else {
+      dispatch(deleteProduct(itemToDelete.id));
+    }
     dispatch(closeModal());
   };
 
@@ -34,10 +41,17 @@ export const DeleteModal = () => {
         </header>
         
         <main className="popup__content">
-          <p className="popup__text font-medium text-slate-700">Вы уверены, что хотите удалить этот товар?</p>
+          <p className="popup__text font-medium text-slate-700">
+            {isOrder 
+              ? 'Вы уверены, что хотите удалить этот приход вместе со всеми продуктами?' 
+              : 'Вы уверены, что хотите удалить этот товар?'
+            }
+          </p>
           <div className="popup__item-preview">
             <span className="popup__item-name">{itemToDelete.title}</span>
-            <span className="popup__item-sn"> (SN-{itemToDelete.serialNumber})</span>
+            {!isOrder && itemToDelete.serialNumber && (
+              <span className="popup__item-sn"> (SN-{itemToDelete.serialNumber})</span>
+            )}
           </div>
         </main>
 

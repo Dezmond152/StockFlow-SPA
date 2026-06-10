@@ -38,6 +38,11 @@ const productsSlice = createSlice({
       })
       .addCase(deleteProduct.rejected, (state, action) => {
         alert(`Не удалось удалить: ${action.error.message}`);
+      })
+      
+      .addCase("orders/deleteOrder/fulfilled", (state, action) => {
+        const deletedOrderId = action.payload; 
+        state.items = state.items.filter((item) => item.order !== deletedOrderId);
       });
   },
 });

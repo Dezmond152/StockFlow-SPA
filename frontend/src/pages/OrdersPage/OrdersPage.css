@@ -41,15 +41,37 @@
 
 .orders__content-wrapper {
   flex-grow: 1;
-  overflow-x: auto;
   padding-bottom: 20px;
 }
 
+.orders__content-grid {
+  display: flex;
+  gap: 24px;
+  padding: 0 100px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
 .orders__list {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 0 100px;
-  min-width: 1100px;
   width: 100%;
+  transition: width 0.3s ease;
+}
+
+.orders__content-grid--split .orders__list {
+  width: 35%;
+  min-width: 320px;
+}
+
+.orders__details-wrapper {
+  width: 65%;
+  animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
 }

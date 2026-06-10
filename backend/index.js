@@ -42,6 +42,26 @@ app.delete('/api/products/:id', (req, res) => {
   res.json({ id: productId, message: "Продукт успешно удален" });
 });
 
+app.delete('/api/orders/:id', (req, res) => {
+  const orderId = parseInt(req.params.id, 10);
+  
+  const orderIndex = orders.findIndex(o => o.id === orderId);
+  
+  if (orderIndex === -1) {
+    return res.status(404).json({ message: "Ордер не найден" });
+  }
+
+  orders.splice(orderIndex, 1);
+
+  for (let i = products.length - 1; i >= 0; i--) {
+    if (products[i].order === orderId) {
+      products.splice(i, 1); // Удаляем продукт из глобального mock-массива
+    }
+  }
+
+  res.json({ id: orderId, message: "Ордер и привязанные продукты успешно удалены" });
+});
+
 
 io.on('connection', (socket) => {
   const emitCount = () => {

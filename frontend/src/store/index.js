@@ -5,8 +5,8 @@ import modalReducer from './modalSlice';
 
 export const store = configureStore({
   reducer: {
-    orders: ordersReducer,
-    products: productsReducer,
-    deleteModal: modalReducer,
+    orders: ordersReducer, //orders: { items: [], status: "idle", error: null },
+    products: productsReducer, //products: { items: [], status: "idle", error: null },
+    deleteModal: modalReducer, //deleteModal: { isOpen: false, itemToDelete: null }
   },
 });
