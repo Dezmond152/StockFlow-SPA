@@ -6,9 +6,16 @@
   <summary><b>🎬 View a demo (GIF)</b></summary>
   <br>
   <img
-    src="docs/assets/demo.gif"
+    src="docs/assets/demo1.gif"
     width="100%"
-    alt="StockFlow Demo"
+    alt="StockFlow Demo1"
+    style="border-radius: 8px; border: 1px solid #30363d;"
+  />
+
+  <img
+    src="docs\assets\demo2.gif"
+    width="100%"
+    alt="StockFlow Demo2"
     style="border-radius: 8px; border: 1px solid #30363d;"
   />
 </details>
@@ -34,8 +41,6 @@
 </ul>
 </td>
 </table>
-
-
 
 ---
 
@@ -65,7 +70,7 @@ Accessible at: http://localhost:5173
 git clone https://github.com/Dezmond152/stockflow-spa.git
 cd stockflow-spa
 
-# Run Backend 
+# Run Backend
 cd backend
 npm install
 npm start
@@ -79,4 +84,5 @@ npm run dev
 ---
 
 ## Roadmap
+
 - Full codebase migration to TypeScript.
