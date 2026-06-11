@@ -20,11 +20,8 @@ A minimalist single-page application (SPA) for inventory management.
   />
 </details>
 
----
-
-<table>
-    <td>
-      <h3> Tech Stack</h3>
+---     
+<h3> Tech Stack</h3>
       <ul>
         <li><b>Frontend:</b> React 19, Redux Toolkit, React Router, Vite</li>
         <li><b>Backend:</b> Node.js 22, Express</li>
@@ -32,15 +29,13 @@ A minimalist single-page application (SPA) for inventory management.
         <li><b>Networking:</b> Axios & Socket.io</li>
         <li><b>Infrastructure:</b> Docker</li>
       </ul>
-
 <h3>Implemented Features</h3>
 <ul>
   <li><b>State Management:</b> Redux Toolkit global store.</li>
   <li><b>Inventory Management:</b> CRUD operations for products and orders.</li>
   <li><b>Real-time Analytics:</b> Live session counter via WebSockets.</li>
 </ul>
-</td>
-</table>
+
 
 ---
 
