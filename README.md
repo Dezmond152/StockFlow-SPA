@@ -1,6 +1,6 @@
 # 📦 StockFlow SPA
 
-> A minimalist single-page application (SPA) for inventory management.
+A minimalist single-page application (SPA) for inventory management.
 
 <details>
   <summary><b>🎬 View a demo (GIF)</b></summary>
