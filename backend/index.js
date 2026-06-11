@@ -6,7 +6,6 @@ import { orders, products } from './data/mockData.js';
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
@@ -55,7 +54,7 @@ app.delete('/api/orders/:id', (req, res) => {
 
   for (let i = products.length - 1; i >= 0; i--) {
     if (products[i].order === orderId) {
-      products.splice(i, 1); // Удаляем продукт из глобального mock-массива
+      products.splice(i, 1);
     }
   }
 
