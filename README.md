@@ -11,9 +11,9 @@
     alt="StockFlow Demo1"
     style="border-radius: 8px; border: 1px solid #30363d;"
   />
-
+  <br><br>
   <img
-    src="docs\assets\demo2.gif"
+    src="docs/assets/demo2.gif"
     width="100%"
     alt="StockFlow Demo2"
     style="border-radius: 8px; border: 1px solid #30363d;"
