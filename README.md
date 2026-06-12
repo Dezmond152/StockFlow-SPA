@@ -52,10 +52,9 @@ cd stockflow-spa
 
 # Build and start all services
 docker compose up
+
+# Accessible at: http://localhost:5173
 ```
-
-Accessible at: http://localhost:5173
-
 ---
 
 ### 2: Manual Local Setup (Node.js locally)
