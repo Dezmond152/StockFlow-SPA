@@ -1,4 +1,6 @@
-export function AddIcon({ size = 16, color = "currentColor" }) {
+import type { IconProps } from './types.js'
+
+export function AddIcon({ size = 16, color = "currentColor", className = ""  }: IconProps) {
   return (
     <svg
       width={size}
@@ -9,6 +11,7 @@ export function AddIcon({ size = 16, color = "currentColor" }) {
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"
+      className={className}
     >
       <line x1="12" y1="5" x2="12" y2="19"></line>
       <line x1="5" y1="12" x2="19" y2="12"></line>

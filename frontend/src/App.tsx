@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { ROUTES } from "./utils/routes.js";
-import { MainLayout } from "./components/MainLayout/MainLayout.jsx";
+import { MainLayout } from "./components/MainLayout/MainLayout.js";
 import { OrdersPage } from "./pages/OrdersPage/OrdersPage.jsx";
 import { ProductsPage } from "./pages/ProductsPage/ProductsPage.jsx";
 
-export function App() {
+
+
+export function App(){
   return (
     <Router>
       <Routes>

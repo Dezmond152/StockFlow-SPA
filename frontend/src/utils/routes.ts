@@ -3,4 +3,4 @@ export const ROUTES = {
   ORDERS: '/orders',
   PRODUCTS: '/products',
   NOT_FOUND: '*',
-};
+} as const;

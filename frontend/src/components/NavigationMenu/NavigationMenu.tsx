@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { ROUTES } from "../../utils/routes";
+import { ROUTES } from "../../utils/routes.js";
 import "./NavigationMenu.css";
 
 export function NavigationMenu() {

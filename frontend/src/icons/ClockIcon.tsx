@@ -1,4 +1,6 @@
-export function ClockIcon({ size = 20, color = "var(--color-yellow)", className = "" }) {
+import type { IconProps } from './types.js'
+
+export function ClockIcon({ size = 20, color = "var(--color-yellow)", className = "" }: IconProps) {
   return (
     <svg
       width={size}

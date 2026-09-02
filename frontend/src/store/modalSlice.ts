@@ -1,6 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
+type ModalState = {
+  isOpen: boolean;
+  itemToDelete: number | null;
+};
+
+const initialState: ModalState = {
   isOpen: false,
   itemToDelete: null,
 };
@@ -9,7 +14,7 @@ const modalSlice = createSlice({
   name: 'deleteModal',
   initialState,
   reducers: {
-    openModal: (state, action) => {
+    openModal: (state, action: PayloadAction<number>) => {
       state.isOpen = true;
       state.itemToDelete = action.payload;
     },

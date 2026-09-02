@@ -1,4 +1,6 @@
-export function TrashIcon({ size = 20, color = "currentColor", className = "" }) {
+import type { IconProps } from './types.js'
+
+export function TrashIcon({ size = 20, color = "currentColor", className = "" }: IconProps) {
   return (
     <svg
       width={size}

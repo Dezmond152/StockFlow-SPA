@@ -1,4 +1,6 @@
-export function ShieldIcon({ size = 40, color = "var(--color-green)", className = "" }) {
+import type { IconProps } from './types.js'
+
+export function ShieldIcon({ size = 40, color = "var(--color-green)", className = "" }: IconProps) {
   return (
     <svg
       width={size}

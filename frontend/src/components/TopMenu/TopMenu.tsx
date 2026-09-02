@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useSocket } from "../../hooks/useSocket";
-import { ShieldIcon } from "../../icons/ShieldIcon";
-import { ClockIcon } from "../../icons/ClockIcon";
+import { useSocket } from "../../hooks/useSocket.js";
+import { ShieldIcon } from "../../icons/ShieldIcon.js";
+import { ClockIcon } from "../../icons/ClockIcon.js";
 import "./TopMenu.css";
 
-const TIME_UPDATE_INTERVAL = 60000;
+const TIME_UPDATE_INTERVAL: number = 60000;
 
 export function TopMenu() {
-  const sessionCount = useSocket();
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const sessionCount: number = useSocket();
+  const [currentDate, setCurrentDate] = useState<Date>(new Date());
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -18,10 +19,11 @@ export function TopMenu() {
     return () => clearInterval(timer);
   }, []);
 
-  const dayOfWeek = currentDate.toLocaleDateString("ru-RU", {
+  const dayOfWeek: string = currentDate.toLocaleDateString("ru-RU", {
     weekday: "long",
   });
-  const formattedDate = currentDate
+
+  const formattedDate: string = currentDate
     .toLocaleDateString("ru-RU", {
       day: "2-digit",
       month: "short",
@@ -29,7 +31,7 @@ export function TopMenu() {
     })
     .replace(".", ",");
 
-  const formattedTime = currentDate.toLocaleTimeString("ru-RU", {
+  const formattedTime: string = currentDate.toLocaleTimeString("ru-RU", {
     hour: "2-digit",
     minute: "2-digit",
   });
